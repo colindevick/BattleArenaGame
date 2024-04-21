@@ -1,10 +1,12 @@
 local ClientStaminaCalculations = {}
 
+local clientStaminaGetter = require("ClientStaminaGetter")
+
 function ClientStaminaCalculations.convertTocurrentstamina(player1)
 	local player = player1
 	local currentStamina = (player:GetAttribute("Stamina")
-		* StaminaGetter.getCurrentstamconvert()) --TODO Cache this calculation.
-		+ StaminaGetter.getLevelonestamina()
+		* clientStaminaGetter.getCurrentstamconvert()) --TODO Cache this calculation.
+		+ clientStaminaGetter.getLevelonestamina()
 	return currentStamina
 end
 

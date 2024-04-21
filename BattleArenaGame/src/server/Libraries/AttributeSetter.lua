@@ -13,9 +13,9 @@ local SavedAttributes = require(DataStores:WaitForChild("AttributesSaved"))
 --Defines the tickrate and current conversion of Stamina Levels to CurrentStamina
 local staminaTocurrentstaminafactor = script:GetAttribute("StaminaToCurrentStamina")
 local healthTocurrenthealthfactor = script:GetAttribute("HealthToCurrentHealth")
-local levelOnestamina = 80
-local levelOnehealth = 400
-local currentRegendelay = 1
+local stamina = 80
+local health = 400
+local CURRENT_REGEN_DELAY = 1
 
 local currentAttributes = {
 	"Stamina",
@@ -25,8 +25,8 @@ local currentAttributes = {
 
 game.ReplicatedStorage.HealthGetter:SetAttribute("HealthToCurrentHealth", healthTocurrenthealthfactor)
 game.ReplicatedStorage.StaminaGetter:SetAttribute("StaminaToCurrentStamina", staminaTocurrentstaminafactor)
-game.ReplicatedStorage.HealthGetter:SetAttribute("LevelOneHealth", levelOnehealth)
-game.ReplicatedStorage.StaminaGetter:SetAttribute("LevelOneStamina", levelOnestamina)
+game.ReplicatedStorage.HealthGetter:SetAttribute("LevelOneHealth", health)
+game.ReplicatedStorage.StaminaGetter:SetAttribute("LevelOneStamina", stamina)
 
 
 --Sets inital attributes. Will eventually pull from storage for each player.
@@ -56,9 +56,10 @@ function AttributeSetter.convertTocurrentstamina(player1)
 	local player = player1
 	local currentStamina = (player:GetAttribute("Stamina")
 		* AttributeSetter.getCurrentstamconvert())
-		+ levelOnestamina
+		+ stamina
 	return currentStamina
 end
+
 
 function AttributeSetter.setCurrentstamina(player1:Player, currentStamina1:NumberValue)
 	local player = player1
@@ -69,6 +70,7 @@ function AttributeSetter.setCurrentstamina(player1:Player, currentStamina1:Numbe
 	end
 
 end
+
 
 function AttributeSetter.getCurrentstamconvert()
 	return staminaTocurrentstaminafactor
@@ -91,7 +93,7 @@ function AttributeSetter.convertTocurrenthealth(player1)
 	local player = player1
 	local currentHealth = (player:GetAttribute("Chin")
 		* AttributeSetter.getCurrenthealthconvert())
-		+ levelOnehealth
+		+ health
 	return currentHealth
 end
 
