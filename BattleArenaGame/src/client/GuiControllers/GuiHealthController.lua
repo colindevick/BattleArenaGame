@@ -12,7 +12,7 @@ local outlineOfhealthBar = player.PlayerGui.PlayerResourceBars.ResourceBarBoundr
 
 local currenthealth
 
---Adjusts the background bar based on the converstion to the currenthealth 
+--Adjusts the background bar based on the converstion to the currenthealth
 local function adjustOutLine()
 	outlineOfhealthBar:TweenSize(UDim2.new(healthGetter.convertTocurrenthealth(player)/scaleFactor, 0, 1 , 0),
 		Enum.EasingDirection.Out,
@@ -25,12 +25,12 @@ end
 
 
 function checkhealthBar()
-	repeat 
+	repeat
 		task.wait()
 		currenthealth = healthGetter.getCurrenthealth(player)
 	until not(currenthealth == nil)
-	
-	 
+
+
 	healthBar:TweenSize(UDim2.new(currenthealth/scaleFactor, 0, 1 , 0),
 		Enum.EasingDirection.Out,
 		Enum.EasingStyle.Quart,
@@ -38,9 +38,9 @@ function checkhealthBar()
 		true,
 		nil
 		)
-		
-	
-end 
+
+
+end
 
 checkhealthBar()
 adjustOutLine()
