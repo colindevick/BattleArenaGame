@@ -11,7 +11,7 @@ local outlineOfstaminaBar = player.PlayerGui.PlayerResourceBars.ResourceBarBound
 
 local currentStamina
 
---Adjusts the background bar based on the converstion to the currentstamina 
+--Adjusts the background bar based on the converstion to the currentstamina
 local function adjustOutLine()
 	outlineOfstaminaBar:TweenSize(UDim2.new(staminaGetter.convertTocurrentstamina(player)/scaleFactor, 0, 1, 0),
 		Enum.EasingDirection.Out,
@@ -35,8 +35,8 @@ function checkStaminaBar()
 		true,
 		nil
 		)
-	
-end 
+
+end
 
 
 checkStaminaBar()

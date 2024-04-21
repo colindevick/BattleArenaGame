@@ -5,7 +5,6 @@
 local AttributeSetter = {}
 
 
-
 ServerScriptService = game:GetService("ServerScriptService")
 Player = game:GetService("Players")
 DataStoresServices = game:GetService("DataStoreService")
@@ -32,12 +31,11 @@ game.ReplicatedStorage.StaminaGetter:SetAttribute("LevelOneStamina", levelOnesta
 
 --Sets inital attributes. Will eventually pull from storage for each player.
 --Convert this to an Array for read ablity
-local function assignmentLogic(player, playerAttributes)
-	print(player.Name, playerAttributes)
+local function assignmentLogic(player:Player, playerAttributes:string)
 	for a, l  in (playerAttributes) do
 		player:SetAttribute(a,l)
 	end
-	
+
 	player:SetAttribute("CurrentStamina", AttributeSetter.convertTocurrentstamina(player))
 	player:SetAttribute("StaminaRegenRate", 45)
 	player:SetAttribute("PlayerConsumingStamina", false)
@@ -46,14 +44,12 @@ local function assignmentLogic(player, playerAttributes)
 	player:SetAttribute("CurrentRegenDelay", 0)
 end
 
-	
 
 function AttributeSetter.SetInitalattibutes(player)
 	local playerID = player.UserId
-	
+
 	assignmentLogic(player, SavedAttributes.getsavedAttributes(player))
 end
-
 
 
 function AttributeSetter.convertTocurrentstamina(player1)
@@ -64,14 +60,14 @@ function AttributeSetter.convertTocurrentstamina(player1)
 	return currentStamina
 end
 
-function AttributeSetter.setCurrentstamina(player1, currentStamina1)
+function AttributeSetter.setCurrentstamina(player1:Player, currentStamina1:NumberValue)
 	local player = player1
 	local newStamina = currentStamina1
 	player:SetAttribute("CurrentStamina", newStamina)
 	if player:GetAttribute("CurrentStamina") < 0 then
 			player:SetAttribute("CurrentStamina", 0)
 	end
-		
+
 end
 
 function AttributeSetter.getCurrentstamconvert()
@@ -87,9 +83,10 @@ function AttributeSetter.setPlayercurrenthealth(player1, newHealth)
 	player:SetAttribute("CurrentHealth", newHealth)
 end
 
-function AttributeSetter.setPlayerregendelay(player, delaylength )
+function AttributeSetter.setPlayerregendelay(player, delaylength)
 	player:SetAttribute("CurrentRegenDelay", delaylength)
 end
+
 function AttributeSetter.convertTocurrenthealth(player1)
 	local player = player1
 	local currentHealth = (player:GetAttribute("Chin")
