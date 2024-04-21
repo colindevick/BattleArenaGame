@@ -1,0 +1,9 @@
+local LocalStaminaCalculations = {}
+
+function LocalStaminaCalculations.convertTocurrentstamina(player1)
+	local player = player1
+	local currentStamina = (player:GetAttribute("Stamina")
+		* StaminaGetter.getCurrentstamconvert()) --TODO Cache this calculation.
+		+ StaminaGetter.getLevelonestamina()
+	return currentStamina
+end
