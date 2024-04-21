@@ -14,10 +14,10 @@ StaminaUsed.OnServerEvent:Connect(function(player, ActionName)
 	if ActionName == "DashScript"  then
 		if StaminaModule.getCurrentstamina(player) >= 20 then
 			PlayerDash.Dash(player)
-			
+
 		end
-		
-		
+
+
 	end
-	
+
 end)
