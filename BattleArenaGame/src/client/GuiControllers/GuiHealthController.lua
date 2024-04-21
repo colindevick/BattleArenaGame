@@ -3,7 +3,7 @@ local player = game.Players.LocalPlayer
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 
-local healthGetter = require(ReplicatedStorage.HealthGetter)
+local healthGetter = require(ReplicatedStorage.ClientHealthGetter)
 local health
 
 local scaleFactor = healthGetter.getScalefactor()

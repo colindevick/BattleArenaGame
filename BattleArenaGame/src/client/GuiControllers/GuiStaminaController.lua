@@ -3,7 +3,7 @@ local player = game.Players.LocalPlayer
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 
-local staminaGetter = require(ReplicatedStorage.StaminaGetter)
+local staminaGetter = require(ReplicatedStorage.ClientStaminaGetter)
 
 local scaleFactor = staminaGetter.getScalefactor()
 local staminaBar = player.PlayerGui.PlayerResourceBars.ResourceBarBoundry.StaminaBorder.StaminaMeter
