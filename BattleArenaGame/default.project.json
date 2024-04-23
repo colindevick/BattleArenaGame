@@ -22,7 +22,11 @@
         }
       }
     },
-
+    "StarterPack": {
+        "Client": {
+          "$path": "src/starter"
+      }
+    },
     "Workspace": {
       "$properties": {
         "FilteringEnabled": true
